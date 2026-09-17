@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Abundance Estate Limited</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar" id="navbar">
+
+        <div class="nav-container">
+
+            <!-- LOGO -->
+            <a href="#" class="logo">
+                <span class="logo-icon">A</span>
+
+                <span class="logo-name">
+                    ABUNDANCE
+                    <small>ESTATE LIMITED</small>
+                </span>
+            </a>
+
+
+            <!-- DESKTOP NAVIGATION -->
+            <nav class="nav-menu">
+
+                <a href="#" class="active">Home</a>
+                <a href="#properties">Properties</a>
+                <a href="#about">About Us</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+
+            </nav>
+
+
+            <!-- NAV ACTIONS -->
+            <div class="nav-actions">
+
+                <button class="login-btn">
+                    Login
+                </button>
+
+                <button class="nav-cta">
+                    List a Property
+                    <span>↗</span>
+                </button>
+
+            </div>
+
+
+            <!-- MOBILE MENU BUTTON -->
+            <button class="menu-toggle" id="menuToggle">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ================= MOBILE MENU ================= -->
+
+    <div class="mobile-menu" id="mobileMenu">
+
+        <nav>
+
+            <a href="#">Home</a>
+            <a href="#properties">Properties</a>
+            <a href="#about">About Us</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+
+        </nav>
+
+        <button>
+            List a Property
+            <span>↗</span>
+        </button>
+
+    </div>
+
+
+
+    <!-- ================= HERO ================= -->
+  <section class="real-estate-hero">
+
+    <!-- Animated Background -->
+    <div class="hero-bg"></div>
+
+    <!-- Dark gradient -->
+    <div class="hero-overlay"></div>
+
+    <!-- Animated red property boundary -->
+    <div class="property-boundary">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Floating location pin -->
+    <div class="location-pin">
+        <div class="pin-icon">●</div>
+        <span>Abuja</span>
+    </div>
+
+
+    <div class="hero-wrapper">
+
+        <!-- LEFT CONTENT -->
+        <div class="hero-content">
+
+            <div class="hero-label">
+                <span></span>
+                LAND / HOMES / INVESTMENT
+            </div>
+
+            <h1>
+                Build Your
+                <strong>Future</strong>
+                With Us
+            </h1>
+
+            <p>
+                Discover verified lands, modern homes and
+                investment opportunities in carefully selected
+                locations across Nigeria.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#properties" class="hero-primary">
+                    Explore Properties
+                    <span>→</span>
+                </a>
+
+                <a href="#contact" class="hero-secondary">
+                    Talk to an Agent
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- FLOATING PROPERTY CARD -->
+        <div class="land-card">
+
+            <div class="land-card-icon">
+                ⌂
+            </div>
+
+            <div>
+                <small>AVAILABLE LAND</small>
+
+                <h3>500 SQM</h3>
+
+                <p>Ready for development</p>
+            </div>
+
+            <button>→</button>
+
+        </div>
+
+
+        <!-- BOTTOM PROPERTY INFO -->
+        <div class="hero-bottom">
+
+            <div class="hero-location">
+
+                <div class="location-symbol">
+                    ●
+                </div>
+
+                <div>
+                    <small>PRIME LOCATIONS</small>
+
+                    <p>
+                        Lagos · Abuja · Port Harcourt · More
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="hero-slider">
+
+                <button id="previousSlide">←</button>
+
+                <div class="slide-numbers">
+                    <strong id="slideNumber">01</strong>
+                    <span>/ 03</span>
+                </div>
+
+                <button id="nextSlide">→</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+            <!-- SLIDER CONTROLS -->
+
+            <div class="slider-controls">
+
+                <button class="slider-arrow" id="prevBtn">
+                    ←
+                </button>
+
+
+                <div class="slider-counter">
+
+                    <span id="currentSlide">01</span>
+
+                    <div class="counter-line">
+                        <div id="progress"></div>
+                    </div>
+
+                    <span>03</span>
+
+                </div>
+
+
+                <button class="slider-arrow" id="nextBtn">
+                    →
+                </button>
+
+            </div>
+
+
+            <!-- SCROLL INDICATOR -->
+
+            <div class="scroll-indicator">
+
+                <span>SCROLL TO EXPLORE</span>
+
+                <div class="scroll-line"></div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+<!-- =========================
+     REAL ESTATE BODY
+========================= -->
+
+<main>
+
+    <!-- Transition Glow -->
+    <div class="section-glow"></div>
+
+    <!-- INTRO -->
+    <section class="intro-section">
+        <div class="intro-left reveal">
+            <span class="section-tag">01 — FIND YOUR PLACE</span>
+
+            <h2>
+                Spaces that feel
+                <span>like home.</span>
+            </h2>
+        </div>
+
+        <div class="intro-right reveal">
+            <p>
+                Discover carefully selected properties designed for
+                modern living, investment and business. From beautiful
+                homes to premium commercial spaces, your next property
+                starts here.
+            </p>
+
+            <a href="#properties" class="gold-link">
+                Explore properties
+                <span>↗</span>
+            </a>
+        </div>
+    </section>
+
+
+    <!-- FEATURED PROPERTIES -->
+    <section class="properties-section" id="properties">
+
+        <div class="section-heading reveal">
+            <div>
+                <span class="section-tag">02 — FEATURED PROPERTIES</span>
+                <h2>Explore our <span>properties.</span></h2>
+            </div>
+
+            <p>
+                Handpicked spaces for living, business and investment.
+            </p>
+        </div>
+
+
+        <div class="property-grid">
+
+            <!-- PROPERTY 1 -->
+            <article class="property-card property-large reveal">
+
+                <div class="property-image">
+                    <img src="image/property 3.jpeg" alt="Modern luxury home">
+
+                    <div class="property-overlay"></div>
+
+                    <span class="property-status">
+                        FOR SALE
+                    </span>
+
+                    <button class="property-heart">♡</button>
+
+                    <div class="property-info">
+                        <span>ABUJA • MAITAMA</span>
+                        <h3>Modern Glass Residence</h3>
+
+                        <div class="property-bottom">
+                            <strong>₦250,000,000</strong>
+                            <span>4 Beds • 5 Baths</span>
+                        </div>
+                    </div>
+                </div>
+
+            </article>
+
+
+            <!-- PROPERTY 2 -->
+            <article class="property-card reveal">
+
+                <div class="property-image">
+                    <img src="image/property22.jpeg" alt="Modern apartment">
+
+                    <div class="property-overlay"></div>
+
+                    <span class="property-status">
+                        FOR RENT
+                    </span>
+
+                    <button class="property-heart">♡</button>
+
+                    <div class="property-info">
+                        <span>ABUJA • WUSE 2</span>
+                        <h3>Contemporary Apartment</h3>
+
+                        <div class="property-bottom">
+                            <strong>₦8,500,000 / YEAR</strong>
+                            <span>3 Beds • 3 Baths</span>
+                        </div>
+                    </div>
+                </div>
+
+            </article>
+
+
+            <!-- PROPERTY 3 -->
+            <article class="property-card reveal">
+
+                <div class="property-image">
+                    <img src="image/property 23.jpeg" alt="Modern building">
+
+                    <div class="property-overlay"></div>
+
+                    <span class="property-status">
+                        INVESTMENT
+                    </span>
+
+                    <button class="property-heart">♡</button>
+
+                    <div class="property-info">
+                        <span>ABUJA • GWARINPA</span>
+                        <h3>Urban Investment Hub</h3>
+
+                        <div class="property-bottom">
+                            <strong>₦180,000,000</strong>
+                            <span>Commercial</span>
+                        </div>
+                    </div>
+                </div>
+
+            </article>
+
+        </div>
+
+        <div class="view-all reveal">
+            <a href="#" class="outline-button">
+                View all properties
+                <span>→</span>
+            </a>
+        </div>
+
+    </section>
+
+
+    <!-- SERVICES -->
+    <section class="services-section">
+
+        <div class="services-title reveal">
+
+            <span class="section-tag">03 — WHAT WE DO</span>
+
+            <h2>
+                More than property.
+                <span>We create possibilities.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="services-grid">
+
+            <div class="service reveal">
+                <span class="service-number">01</span>
+
+                <div class="service-icon">⌂</div>
+
+                <h3>Property Sales</h3>
+
+                <p>
+                    Find residential and commercial properties
+                    carefully selected for your needs.
+                </p>
+
+                <a href="#">Discover →</a>
+            </div>
+
+
+            <div class="service reveal">
+                <span class="service-number">02</span>
+
+                <div class="service-icon">◆</div>
+
+                <h3>Property Investment</h3>
+
+                <p>
+                    Explore strategic property opportunities
+                    designed around long-term value.
+                </p>
+
+                <a href="#">Discover →</a>
+            </div>
+
+
+            <div class="service reveal">
+                <span class="service-number">03</span>
+
+                <div class="service-icon">↗</div>
+
+                <h3>Property Management</h3>
+
+                <p>
+                    Professional management solutions that
+                    keep your property performing.
+                </p>
+
+                <a href="#">Discover →</a>
+            </div>
+
+
+            <div class="service reveal">
+                <span class="service-number">04</span>
+
+                <div class="service-icon">◈</div>
+
+                <h3>Real Estate Advisory</h3>
+
+                <p>
+                    Get practical guidance when buying,
+                    selling or investing in property.
+                </p>
+
+                <a href="#">Discover →</a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- STATISTICS -->
+    <section class="stats-section">
+
+        <div class="stats-content reveal">
+
+            <span class="section-tag">04 — OUR NUMBERS</span>
+
+            <h2>
+                Built on trust.
+                <span>Driven by results.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="stats-grid">
+
+            <div class="stat reveal">
+                <strong data-target="250">0</strong>
+                <span>+</span>
+                <p>Properties Listed</p>
+            </div>
+
+            <div class="stat reveal">
+                <strong data-target="180">0</strong>
+                <span>+</span>
+                <p>Happy Clients</p>
+            </div>
+
+            <div class="stat reveal">
+                <strong data-target="15">0</strong>
+                <span>+</span>
+                <p>Years Experience</p>
+            </div>
+
+            <div class="stat reveal">
+                <strong data-target="98">0</strong>
+                <span>%</span>
+                <p>Client Satisfaction</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="property-cta reveal">
+
+        <div class="cta-background"></div>
+
+        <div class="cta-content">
+
+            <span class="section-tag">05 — YOUR NEXT MOVE</span>
+
+            <h2>
+                Your next address
+                <span>starts here.</span>
+            </h2>
+
+            <p>
+                Tell us what you're looking for and we'll help
+                you find a property that fits.
+            </p>
+
+            <div class="cta-buttons">
+                <a href="#" class="gold-button">
+                    Find a property
+                    <span>↗</span>
+                </a>
+
+                <a href="#" class="text-button">
+                    Talk to an agent →
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- -------------------------------------------------------------------------------- -->
+<!-- ================================
+     MODERN REAL ESTATE FOOTER
+================================ -->
+
+<footer class="site-footer">
+
+    <!-- TOP CTA -->
+    <div class="footer-cta">
+
+        <div class="footer-cta-text">
+            <span class="footer-label">LET'S FIND YOUR NEXT SPACE</span>
+
+            <h2>
+                Let's build your
+                <span>next chapter.</span>
+            </h2>
+        </div>
+
+        <a href="#" class="footer-cta-button">
+            Talk to us
+            <span>↗</span>
+        </a>
+
+    </div>
+
+
+    <!-- FOOTER MAIN -->
+    <div class="footer-main">
+
+        <!-- BRAND -->
+        <div class="footer-brand">
+
+            <a href="#" class="footer-logo">
+                ESTATE<span>.</span>
+            </a>
+
+            <p>
+                Helping you discover spaces that fit
+                your lifestyle, ambitions and future.
+            </p>
+
+            <div class="social-links">
+
+                <a href="#" aria-label="Instagram">IG</a>
+
+                <a href="#" aria-label="Facebook">FB</a>
+
+                <a href="#" aria-label="LinkedIn">IN</a>
+
+                <a href="#" aria-label="X">X</a>
+
+            </div>
+
+        </div>
+
+
+        <!-- EXPLORE -->
+        <div class="footer-column">
+
+            <h3>Explore</h3>
+
+            <a href="#">Properties</a>
+
+            <a href="#">For Sale</a>
+
+            <a href="#">For Rent</a>
+
+            <a href="#">New Developments</a>
+
+            <a href="#">Investment</a>
+
+        </div>
+
+
+        <!-- COMPANY -->
+        <div class="footer-column">
+
+            <h3>Company</h3>
+
+            <a href="#">About Us</a>
+
+            <a href="#">Our Services</a>
+
+            <a href="#">Our Agents</a>
+
+            <a href="#">Contact</a>
+
+            <a href="#">FAQs</a>
+
+        </div>
+
+
+        <!-- CONTACT -->
+        <div class="footer-column contact-column">
+
+            <h3>Get in touch</h3>
+
+            <a href="tel:+2348000000000">
+                +234 800 000 0000
+            </a>
+
+            <a href="mailto:hello@estate.com">
+                hello@estate.com
+            </a>
+
+            <p>
+                Abuja, Nigeria
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- NEWSLETTER -->
+    <div class="footer-newsletter">
+
+        <div>
+
+            <span class="footer-label">
+                PROPERTY INSIDER
+            </span>
+
+            <h3>
+                Get new property opportunities
+                in your inbox.
+            </h3>
+
+        </div>
+
+
+        <form class="newsletter-form">
+
+            <input
+                type="email"
+                placeholder="Your email address"
+                required
+            >
+
+            <button type="submit">
+                Subscribe
+                <span>→</span>
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- BOTTOM -->
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 Estate. All rights reserved.
+        </p>
+
+        <div>
+
+            <a href="#">Privacy Policy</a>
+
+            <a href="#">Terms & Conditions</a>
+
+        </div>
+
+        <a href="#" class="back-top">
+            Back to top ↑
+        </a>
+
+    </div>
+
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

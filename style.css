@@ -1,0 +1,4624 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background: #080808;
+    color: #ffffff;
+
+    overflow-x: hidden;
+}
+
+
+button,
+a {
+    font: inherit;
+}
+
+
+button {
+    cursor: pointer;
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+/* =========================================
+   COLORS
+========================================= */
+
+:root {
+
+    --black: #080808;
+    --black-soft: #111111;
+
+    --brown: #8b6a52;
+    --brown-light: #b89a7d;
+
+    --red: #d71920;
+    --red-dark: #a80f15;
+
+    --white: #ffffff;
+    --gray: #a6a6a6;
+
+}
+
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 82px;
+
+    z-index: 1000;
+
+    transition:
+        background 0.35s ease,
+        box-shadow 0.35s ease,
+        height 0.35s ease;
+
+}
+
+
+.navbar.scrolled {
+
+    background: rgba(8, 8, 8, 0.94);
+
+    backdrop-filter: blur(16px);
+
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.35);
+
+}
+
+
+.nav-container {
+
+    width: min(1400px, 92%);
+
+    height: 100%;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+}
+
+
+.logo-icon {
+
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 9px;
+
+    background: var(--red);
+
+    font-size: 21px;
+
+    font-weight: 800;
+
+}
+
+
+.logo-name {
+
+    font-size: 17px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+.logo-name small {
+
+    display: block;
+
+    margin-top: 2px;
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+
+    color: var(--brown-light);
+
+}
+
+
+
+/* =========================================
+   NAV MENU
+========================================= */
+
+.nav-menu {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 36px;
+
+}
+
+
+.nav-menu a {
+
+    position: relative;
+
+    color: #bcbcbc;
+
+    font-size: 14px;
+
+    transition: color 0.25s ease;
+
+}
+
+
+.nav-menu a:hover,
+.nav-menu a.active {
+
+    color: #ffffff;
+
+}
+
+
+.nav-menu a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -9px;
+
+    width: 0;
+
+    height: 2px;
+
+    background: var(--red);
+
+    transition: width 0.25s ease;
+
+}
+
+
+.nav-menu a:hover::after,
+.nav-menu a.active::after {
+
+    width: 100%;
+
+}
+
+
+
+/* =========================================
+   NAV ACTIONS
+========================================= */
+
+.nav-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+}
+
+
+.login-btn {
+
+    border: none;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    padding: 11px 16px;
+
+}
+
+
+.nav-cta {
+
+    border: none;
+
+    background: var(--red);
+
+    color: #ffffff;
+
+    padding: 13px 19px;
+
+    border-radius: 7px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+
+}
+
+
+.nav-cta span {
+
+    margin-left: 8px;
+
+}
+
+
+.nav-cta:hover {
+
+    background: #ed1d25;
+
+    transform: translateY(-2px);
+
+}
+
+
+
+/* =========================================
+   MOBILE MENU BUTTON
+========================================= */
+
+.menu-toggle {
+
+    display: none;
+
+    width: 43px;
+    height: 43px;
+
+    background: transparent;
+
+    border: 1px solid #333;
+
+    border-radius: 7px;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 5px;
+
+}
+
+
+.menu-toggle span {
+
+    width: 20px;
+
+    height: 2px;
+
+    background: white;
+
+    transition: 0.3s;
+
+}
+
+
+
+/* =========================================
+   MOBILE MENU
+========================================= */
+
+.mobile-menu {
+
+    position: fixed;
+
+    top: 82px;
+    left: 0;
+
+    width: 100%;
+
+    background: rgba(10, 10, 10, 0.98);
+
+    backdrop-filter: blur(20px);
+
+    z-index: 999;
+
+    padding: 30px 7%;
+
+    transform: translateY(-120%);
+
+    transition: transform 0.4s ease;
+
+    border-bottom: 1px solid #292929;
+
+}
+
+
+.mobile-menu.open {
+
+    transform: translateY(0);
+
+}
+
+
+.mobile-menu nav {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.mobile-menu nav a {
+
+    padding: 18px 0;
+
+    border-bottom: 1px solid #252525;
+
+    color: #ccc;
+
+    font-size: 17px;
+
+}
+
+
+.mobile-menu button {
+
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: var(--red);
+
+    color: white;
+
+}
+
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+}
+
+
+
+/* HERO IMAGE */
+
+.hero-image {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        url("images/house-1.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    transform: scale(1.05);
+
+    transition:
+        background-image 0.6s ease,
+        transform 6s ease;
+
+}
+
+
+.hero:hover .hero-image {
+
+    transform: scale(1);
+
+}
+
+
+
+/* OVERLAY */
+
+.hero-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,0.94) 0%,
+            rgba(0,0,0,0.78) 38%,
+            rgba(0,0,0,0.35) 75%,
+            rgba(0,0,0,0.55) 100%
+        );
+
+}
+
+
+
+/* =========================================
+   HERO CONTAINER
+========================================= */
+
+.hero-container {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(1400px, 92%);
+
+    margin: auto;
+
+    padding-top: 80px;
+
+}
+
+
+.hero-content {
+
+    max-width: 650px;
+
+    animation: heroEnter 0.9s ease forwards;
+
+}
+
+
+@keyframes heroEnter {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(35px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+
+/* TAG */
+
+.hero-tag {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: var(--brown-light);
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 22px;
+
+}
+
+
+.dot {
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--red);
+
+    box-shadow:
+        0 0 0 5px rgba(215, 25, 32, 0.15);
+
+}
+
+
+
+/* HEADING */
+
+.hero h1 {
+
+    font-size: clamp(52px, 7vw, 88px);
+
+    line-height: 0.98;
+
+    letter-spacing: -4px;
+
+    font-weight: 700;
+
+}
+
+
+.hero h1 span {
+
+    display: block;
+
+    color: var(--red);
+
+}
+
+
+
+/* DESCRIPTION */
+
+.hero-content p {
+
+    max-width: 530px;
+
+    margin-top: 25px;
+
+    color: #c5c5c5;
+
+    line-height: 1.7;
+
+    font-size: 16px;
+
+}
+
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.hero-buttons {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    margin-top: 34px;
+
+}
+
+
+.primary-btn {
+
+    border: none;
+
+    background: var(--red);
+
+    color: white;
+
+    padding: 16px 23px;
+
+    border-radius: 7px;
+
+    font-weight: 600;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+
+}
+
+
+.primary-btn span {
+
+    margin-left: 15px;
+
+    font-size: 18px;
+
+}
+
+
+.primary-btn:hover {
+
+    transform: translateY(-3px);
+
+    background: #ed1d25;
+
+}
+
+
+.secondary-btn {
+
+    background: rgba(255,255,255,0.05);
+
+    border: 1px solid rgba(255,255,255,0.25);
+
+    color: white;
+
+    padding: 15px 22px;
+
+    border-radius: 7px;
+
+    backdrop-filter: blur(5px);
+
+    transition: 0.25s;
+
+}
+
+
+.secondary-btn:hover {
+
+    background: white;
+
+    color: black;
+
+}
+
+
+
+/* =========================================
+   PROPERTY INFO
+========================================= */
+
+.property-info {
+
+    position: absolute;
+
+    right: 0;
+
+    bottom: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 45px;
+
+    padding: 22px 28px;
+
+    background: rgba(8,8,8,0.72);
+
+    backdrop-filter: blur(15px);
+
+    border-top: 1px solid rgba(255,255,255,0.12);
+
+    border-left: 1px solid rgba(255,255,255,0.12);
+
+}
+
+
+.property-location {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+.location-icon {
+
+    width: 38px;
+    height: 38px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: rgba(215,25,32,0.15);
+
+    color: var(--red);
+
+}
+
+
+.property-info small {
+
+    display: block;
+
+    color: #888;
+
+    font-size: 10px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.property-info strong {
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+
+.property-details {
+
+    display: flex;
+
+    gap: 30px;
+
+}
+
+
+.property-details > div {
+
+    padding-left: 25px;
+
+    border-left: 1px solid #333;
+
+}
+
+
+
+/* =========================================
+   SLIDER CONTROLS
+========================================= */
+
+.slider-controls {
+
+    position: absolute;
+
+    right: 5%;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    z-index: 3;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 18px;
+
+}
+
+
+.slider-arrow {
+
+    width: 45px;
+    height: 45px;
+
+    border: 1px solid rgba(255,255,255,0.3);
+
+    border-radius: 50%;
+
+    background: rgba(0,0,0,0.25);
+
+    color: white;
+
+    transition: 0.25s;
+
+}
+
+
+.slider-arrow:hover {
+
+    background: var(--red);
+
+    border-color: var(--red);
+
+}
+
+
+.slider-counter {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 11px;
+
+}
+
+
+.slider-counter span:first-child {
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+}
+
+
+.counter-line {
+
+    width: 2px;
+
+    height: 65px;
+
+    background: #444;
+
+    position: relative;
+
+}
+
+
+#progress {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 30%;
+
+    background: var(--red);
+
+}
+
+
+
+/* =========================================
+   SCROLL INDICATOR
+========================================= */
+
+.scroll-indicator {
+
+    position: absolute;
+
+    left: 4%;
+
+    bottom: 28px;
+
+    z-index: 3;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    color: #999;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.scroll-line {
+
+    width: 45px;
+
+    height: 1px;
+
+    background: var(--brown-light);
+
+}
+
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1050px) {
+
+    .nav-menu {
+
+        gap: 22px;
+
+    }
+
+    .nav-actions .login-btn {
+
+        display: none;
+
+    }
+
+    .hero h1 {
+
+        font-size: 68px;
+
+    }
+
+}
+
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+
+        height: 72px;
+
+    }
+
+
+    .nav-menu,
+    .nav-actions {
+
+        display: none;
+
+    }
+
+
+    .menu-toggle {
+
+        display: flex;
+
+    }
+
+
+    .mobile-menu {
+
+        top: 72px;
+
+    }
+
+
+    .hero {
+
+        min-height: 850px;
+
+        align-items: flex-start;
+
+    }
+
+
+    .hero-container {
+
+        padding-top: 145px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: clamp(48px, 13vw, 70px);
+
+        letter-spacing: -3px;
+
+    }
+
+
+    .hero-content p {
+
+        font-size: 14px;
+
+        max-width: 90%;
+
+    }
+
+
+    .hero-buttons {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        width: 100%;
+
+        max-width: 330px;
+
+    }
+
+
+    .primary-btn,
+    .secondary-btn {
+
+        width: 100%;
+
+    }
+
+
+    .property-info {
+
+        left: 4%;
+
+        right: 4%;
+
+        bottom: 30px;
+
+        padding: 18px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 18px;
+
+    }
+
+
+    .property-details {
+
+        width: 100%;
+
+    }
+
+
+    .property-details > div {
+
+        flex: 1;
+
+    }
+
+
+    .slider-controls {
+
+        right: 4%;
+
+        top: auto;
+
+        bottom: 185px;
+
+        transform: none;
+
+        flex-direction: row;
+
+    }
+
+
+    .slider-counter {
+
+        flex-direction: row;
+
+    }
+
+
+    .counter-line {
+
+        width: 50px;
+
+        height: 2px;
+
+    }
+
+
+    #progress {
+
+        width: 35%;
+
+        height: 100%;
+
+    }
+
+
+    .scroll-indicator {
+
+        display: none;
+
+    }
+
+}
+
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 430px) {
+
+    .nav-container {
+
+        width: 90%;
+
+    }
+
+
+    .logo-name {
+
+        font-size: 14px;
+
+    }
+
+
+    .logo-icon {
+
+        width: 38px;
+        height: 38px;
+
+    }
+
+
+    .hero-container {
+
+        width: 90%;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: 48px;
+
+    }
+
+
+    .hero-tag {
+
+        font-size: 9px;
+
+        letter-spacing: 1.5px;
+
+    }
+
+
+    .property-info {
+
+        bottom: 20px;
+
+    }
+
+
+    .property-details {
+
+        gap: 15px;
+
+    }
+
+}
+/* ========================================
+   REAL ESTATE HERO
+======================================== */
+
+.real-estate-hero {
+
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    background: #080808;
+
+}
+
+
+/* ========================================
+   BACKGROUND IMAGE
+======================================== */
+
+.hero-bg {
+
+    position: absolute;
+
+    inset: -5%;
+
+    background-image:
+        url("image/property22.jpeg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    transform: scale(1.08);
+
+    animation: propertyZoom 12s ease-in-out infinite alternate;
+
+    transition:
+        background-image 0.8s ease,
+        transform 1s ease;
+
+}
+
+
+@keyframes propertyZoom {
+
+    0% {
+        transform:
+            scale(1.08)
+            translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform:
+            scale(1.13)
+            translate3d(-1%, -0.5%, 0);
+    }
+
+    100% {
+        transform:
+            scale(1.08)
+            translate3d(1%, 0, 0);
+    }
+
+}
+
+
+
+/* ========================================
+   DARK OVERLAY
+======================================== */
+
+.hero-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(5,5,5,0.97) 0%,
+            rgba(5,5,5,0.85) 25%,
+            rgba(5,5,5,0.40) 60%,
+            rgba(5,5,5,0.25) 100%
+        );
+
+    z-index: 1;
+
+}
+
+
+
+/* ========================================
+   HERO WRAPPER
+======================================== */
+
+.hero-wrapper {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: min(1400px, 92%);
+
+    min-height: 100vh;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+
+
+/* ========================================
+   HERO CONTENT
+======================================== */
+
+.hero-content {
+
+    width: 600px;
+
+    padding-top: 60px;
+
+    animation: contentEnter 1s ease forwards;
+
+}
+
+
+@keyframes contentEnter {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(50px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+
+/* ========================================
+   LABEL
+======================================== */
+
+.hero-label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color: #b89a7d;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.hero-label span {
+
+    width: 45px;
+
+    height: 2px;
+
+    background: #d71920;
+
+}
+
+
+
+/* ========================================
+   HEADING
+======================================== */
+
+.hero-content h1 {
+
+    font-size: clamp(55px, 7vw, 90px);
+
+    line-height: 0.95;
+
+    letter-spacing: -4px;
+
+    font-weight: 700;
+
+    color: white;
+
+}
+
+
+.hero-content h1 strong {
+
+    display: block;
+
+    color: #d71920;
+
+    font-weight: 700;
+
+}
+
+
+
+/* ========================================
+   DESCRIPTION
+======================================== */
+
+.hero-content p {
+
+    max-width: 520px;
+
+    margin-top: 28px;
+
+    color: #c7c7c7;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+}
+
+
+
+/* ========================================
+   BUTTONS
+======================================== */
+
+.hero-buttons {
+
+    display: flex;
+
+    gap: 14px;
+
+    margin-top: 35px;
+
+}
+
+
+.hero-primary {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 16px 23px;
+
+    background: #d71920;
+
+    color: white;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+
+}
+
+
+.hero-primary:hover {
+
+    background: #ef1b23;
+
+    transform: translateY(-4px);
+
+}
+
+
+.hero-primary span {
+
+    font-size: 20px;
+
+}
+
+
+
+.hero-secondary {
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 15px 22px;
+
+    border: 1px solid rgba(255,255,255,0.35);
+
+    background: rgba(255,255,255,0.06);
+
+    backdrop-filter: blur(8px);
+
+    color: white;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+
+    transition: 0.3s ease;
+
+}
+
+
+.hero-secondary:hover {
+
+    background: white;
+
+    color: #111;
+
+}
+
+
+
+/* ========================================
+   FLOATING LAND CARD
+======================================== */
+
+.land-card {
+
+    position: absolute;
+
+    right: 8%;
+
+    top: 26%;
+
+    width: 285px;
+
+    padding: 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    background: rgba(15,15,15,0.80);
+
+    border: 1px solid rgba(255,255,255,0.18);
+
+    backdrop-filter: blur(15px);
+
+    border-radius: 12px;
+
+    animation: floatingCard 4s ease-in-out infinite;
+
+}
+
+
+@keyframes floatingCard {
+
+    0%,
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-14px);
+
+    }
+
+}
+
+
+.land-card-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    flex-shrink: 0;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 9px;
+
+    background: #d71920;
+
+    color: white;
+
+    font-size: 22px;
+
+}
+
+
+.land-card small {
+
+    color: #a8a8a8;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+.land-card h3 {
+
+    margin-top: 4px;
+
+    font-size: 20px;
+
+}
+
+
+.land-card p {
+
+    margin-top: 3px;
+
+    color: #999;
+
+    font-size: 10px;
+
+}
+
+
+.land-card button {
+
+    margin-left: auto;
+
+    width: 35px;
+
+    height: 35px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background: #d71920;
+
+    color: white;
+
+}
+
+
+
+/* ========================================
+   ANIMATED PROPERTY BOUNDARY
+======================================== */
+
+.property-boundary {
+
+    position: absolute;
+
+    right: 10%;
+
+    bottom: 24%;
+
+    width: 300px;
+
+    height: 180px;
+
+    z-index: 3;
+
+    transform: perspective(500px) rotateX(55deg) rotateZ(-3deg);
+
+}
+
+
+.property-boundary span {
+
+    position: absolute;
+
+    background: #d71920;
+
+    box-shadow:
+        0 0 12px rgba(215,25,32,0.8);
+
+}
+
+
+.property-boundary span:nth-child(1) {
+
+    width: 100%;
+
+    height: 2px;
+
+    top: 0;
+
+    left: 0;
+
+    animation: boundaryTop 3s infinite;
+
+}
+
+
+.property-boundary span:nth-child(2) {
+
+    width: 2px;
+
+    height: 100%;
+
+    right: 0;
+
+    top: 0;
+
+}
+
+
+.property-boundary span:nth-child(3) {
+
+    width: 100%;
+
+    height: 2px;
+
+    bottom: 0;
+
+    right: 0;
+
+}
+
+
+.property-boundary span:nth-child(4) {
+
+    width: 2px;
+
+    height: 100%;
+
+    left: 0;
+
+    bottom: 0;
+
+}
+
+
+@keyframes boundaryTop {
+
+    0% {
+
+        transform: scaleX(0);
+
+        transform-origin: left;
+
+    }
+
+    50% {
+
+        transform: scaleX(1);
+
+        transform-origin: left;
+
+    }
+
+    100% {
+
+        transform: scaleX(0);
+
+        transform-origin: right;
+
+    }
+
+}
+
+
+
+/* ========================================
+   LOCATION PIN
+======================================== */
+
+.location-pin {
+
+    position: absolute;
+
+    right: 23%;
+
+    bottom: 35%;
+
+    z-index: 4;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 5px;
+
+    animation: pinFloat 2s ease-in-out infinite;
+
+}
+
+
+.pin-icon {
+
+    width: 45px;
+
+    height: 45px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 50% 50% 50% 0;
+
+    transform: rotate(-45deg);
+
+    background: #d71920;
+
+    box-shadow:
+        0 10px 30px rgba(215,25,32,0.45);
+
+}
+
+
+.pin-icon::after {
+
+    content: "";
+
+    width: 10px;
+
+    height: 10px;
+
+    background: white;
+
+    border-radius: 50%;
+
+}
+
+
+.location-pin span {
+
+    padding: 5px 10px;
+
+    background: rgba(0,0,0,0.7);
+
+    border-radius: 4px;
+
+    font-size: 10px;
+
+}
+
+
+@keyframes pinFloat {
+
+    0%,
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-10px);
+
+    }
+
+}
+
+
+
+/* ========================================
+   BOTTOM INFORMATION
+======================================== */
+
+.hero-bottom {
+
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+.hero-location {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+.location-symbol {
+
+    width: 42px;
+
+    height: 42px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: rgba(215,25,32,0.18);
+
+    color: #d71920;
+
+}
+
+
+.hero-location small {
+
+    display: block;
+
+    color: #999;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.hero-location p {
+
+    margin-top: 5px;
+
+    color: white;
+
+    font-size: 12px;
+
+}
+
+
+
+/* ========================================
+   SLIDER
+======================================== */
+
+.hero-slider {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+}
+
+
+.hero-slider button {
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,0.35);
+
+    background: rgba(0,0,0,0.2);
+
+    color: white;
+
+    transition: 0.3s;
+
+}
+
+
+.hero-slider button:hover {
+
+    background: #d71920;
+
+    border-color: #d71920;
+
+}
+
+
+.slide-numbers {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+}
+
+
+.slide-numbers strong {
+
+    font-size: 17px;
+
+}
+
+
+.slide-numbers span {
+
+    color: #777;
+
+    font-size: 11px;
+
+}
+
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1000px) {
+
+    .land-card {
+
+        right: 4%;
+
+    }
+
+    .property-boundary {
+
+        right: 5%;
+
+    }
+
+    .location-pin {
+
+        right: 17%;
+
+    }
+
+}
+
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+
+    .real-estate-hero {
+
+        min-height: 850px;
+
+    }
+
+
+    .hero-wrapper {
+
+        width: 90%;
+
+        min-height: 850px;
+
+        align-items: flex-start;
+
+        padding-top: 145px;
+
+    }
+
+
+    .hero-content {
+
+        width: 100%;
+
+    }
+
+
+    .hero-content h1 {
+
+        font-size: clamp(48px, 14vw, 68px);
+
+        letter-spacing: -3px;
+
+    }
+
+
+    .hero-content p {
+
+        max-width: 95%;
+
+        font-size: 14px;
+
+    }
+
+
+    .hero-buttons {
+
+        flex-direction: column;
+
+        width: 100%;
+
+        max-width: 330px;
+
+    }
+
+
+    .hero-primary,
+    .hero-secondary {
+
+        justify-content: center;
+
+        width: 100%;
+
+    }
+
+
+    /* Move property card lower */
+
+    .land-card {
+
+        top: auto;
+
+        bottom: 135px;
+
+        left: 5%;
+
+        right: 5%;
+
+        width: auto;
+
+    }
+
+
+    /* Smaller boundary */
+
+    .property-boundary {
+
+        width: 190px;
+
+        height: 110px;
+
+        right: 8%;
+
+        bottom: 30%;
+
+        opacity: 0.7;
+
+    }
+
+
+    .location-pin {
+
+        right: 20%;
+
+        bottom: 38%;
+
+    }
+
+
+    .hero-bottom {
+
+        bottom: 25px;
+
+    }
+
+
+    .hero-location p {
+
+        font-size: 10px;
+
+    }
+
+
+    .hero-slider {
+
+        gap: 7px;
+
+    }
+
+
+    .hero-slider button {
+
+        width: 35px;
+
+        height: 35px;
+
+    }
+
+}
+
+
+
+/* ========================================
+   SMALL PHONE
+======================================== */
+
+@media (max-width: 450px) {
+
+    .hero-label {
+
+        font-size: 8px;
+
+        letter-spacing: 1.5px;
+
+    }
+
+
+    .hero-content h1 {
+
+        font-size: 48px;
+
+    }
+
+
+    .hero-bottom {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+
+    }
+
+
+    .hero-slider {
+
+        align-self: flex-end;
+
+    }
+
+
+    .land-card {
+
+        bottom: 125px;
+
+    }
+
+}
+/* ==============================
+   REAL ESTATE BODY
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #050505;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+
+/* ==============================
+   MAIN
+================================ */
+
+main {
+    background: #050505;
+    overflow: hidden;
+}
+
+
+/* ==============================
+   HERO TO BODY GLOW
+================================ */
+
+.section-glow {
+    width: 600px;
+    height: 300px;
+
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: radial-gradient(
+        circle,
+        rgba(214, 173, 85, 0.18),
+        transparent 70%
+    );
+
+    pointer-events: none;
+}
+
+
+/* ==============================
+   INTRO
+================================ */
+
+.intro-section {
+
+    min-height: 80vh;
+
+    padding: 150px 8% 100px;
+
+    display: grid;
+
+    grid-template-columns: 1.2fr 1fr;
+
+    gap: 80px;
+
+    align-items: center;
+
+}
+
+
+.section-tag {
+
+    color: #d6ad55;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 25px;
+
+    display: inline-block;
+
+}
+
+
+.intro-left h2 {
+
+    font-size: clamp(45px, 7vw, 95px);
+
+    line-height: .95;
+
+    font-weight: 500;
+
+}
+
+
+.intro-left h2 span {
+
+    color: #d6ad55;
+
+}
+
+
+.intro-right {
+
+    max-width: 500px;
+
+}
+
+
+.intro-right p {
+
+    color: #999;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+
+    margin-bottom: 30px;
+
+}
+
+
+.gold-link {
+
+    color: #d6ad55;
+
+    text-decoration: none;
+
+    border-bottom: 1px solid #d6ad55;
+
+    padding-bottom: 8px;
+
+    transition: .3s;
+
+}
+
+
+.gold-link:hover {
+
+    color: #fff;
+
+    border-color: #fff;
+
+}
+
+
+/* ==============================
+   PROPERTY SECTION
+================================ */
+
+.properties-section {
+
+    padding: 100px 8%;
+
+}
+
+
+.section-heading {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: end;
+
+    margin-bottom: 60px;
+
+}
+
+
+.section-heading h2 {
+
+    font-size: clamp(40px, 6vw, 75px);
+
+    font-weight: 500;
+
+}
+
+
+.section-heading h2 span {
+
+    color: #d6ad55;
+
+}
+
+
+.section-heading p {
+
+    color: #888;
+
+    max-width: 350px;
+
+    line-height: 1.7;
+
+}
+
+
+/* ==============================
+   PROPERTY GRID
+================================ */
+
+.property-grid {
+
+    display: grid;
+
+    grid-template-columns: 1.4fr 1fr;
+
+    gap: 20px;
+
+}
+
+
+.property-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: #111;
+
+    min-height: 400px;
+
+}
+
+
+.property-large {
+
+    grid-row: span 2;
+
+}
+
+
+.property-image {
+
+    position: relative;
+
+    height: 420px;
+
+    overflow: hidden;
+
+}
+
+
+.property-large .property-image {
+
+    height: 840px;
+
+}
+
+
+.property-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 1s ease;
+
+}
+
+
+.property-card:hover img {
+
+    transform: scale(1.08);
+
+}
+
+
+/* DARK IMAGE OVERLAY */
+
+.property-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,.95),
+        rgba(0,0,0,.1)
+    );
+
+}
+
+
+/* STATUS */
+
+.property-status {
+
+    position: absolute;
+
+    top: 20px;
+
+    left: 20px;
+
+    background: #d6ad55;
+
+    color: #000;
+
+    padding: 8px 12px;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* HEART */
+
+.property-heart {
+
+    position: absolute;
+
+    right: 20px;
+
+    top: 20px;
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,.4);
+
+    background: rgba(0,0,0,.5);
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    z-index: 5;
+
+    transition: .3s;
+
+}
+
+
+.property-heart:hover {
+
+    background: #a30d0d;
+
+}
+
+
+/* PROPERTY TEXT */
+
+.property-info {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    padding: 30px;
+
+    z-index: 3;
+
+}
+
+
+.property-info > span {
+
+    color: #d6ad55;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.property-info h3 {
+
+    font-size: 27px;
+
+    font-weight: 500;
+
+    margin: 10px 0 20px;
+
+}
+
+
+.property-bottom {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+.property-bottom strong {
+
+    font-size: 16px;
+
+}
+
+
+.property-bottom span {
+
+    color: #aaa;
+
+    font-size: 12px;
+
+}
+
+
+/* ==============================
+   VIEW BUTTON
+================================ */
+
+.view-all {
+
+    text-align: center;
+
+    margin-top: 60px;
+
+}
+
+
+.outline-button {
+
+    display: inline-flex;
+
+    gap: 25px;
+
+    padding: 16px 25px;
+
+    color: white;
+
+    border: 1px solid #444;
+
+    text-decoration: none;
+
+    transition: .3s;
+
+}
+
+
+.outline-button:hover {
+
+    background: #d6ad55;
+
+    color: #000;
+
+}
+
+
+/* ==============================
+   SERVICES
+================================ */
+
+.services-section {
+
+    padding: 150px 8%;
+
+    background: #090909;
+
+}
+
+
+.services-title {
+
+    max-width: 900px;
+
+    margin-bottom: 80px;
+
+}
+
+
+.services-title h2 {
+
+    font-size: clamp(45px, 6vw, 80px);
+
+    font-weight: 500;
+
+    line-height: 1;
+
+}
+
+
+.services-title h2 span {
+
+    color: #d6ad55;
+
+}
+
+
+.services-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    border-top: 1px solid #222;
+
+}
+
+
+.service {
+
+    padding: 40px 25px;
+
+    min-height: 330px;
+
+    border-right: 1px solid #222;
+
+    transition: .4s;
+
+}
+
+
+.service:hover {
+
+    background: #111;
+
+    transform: translateY(-8px);
+
+}
+
+
+.service-number {
+
+    color: #555;
+
+}
+
+
+.service-icon {
+
+    color: #d6ad55;
+
+    font-size: 35px;
+
+    margin: 60px 0 25px;
+
+}
+
+
+.service h3 {
+
+    font-size: 20px;
+
+    font-weight: 500;
+
+}
+
+
+.service p {
+
+    color: #888;
+
+    line-height: 1.8;
+
+    font-size: 14px;
+
+    margin: 15px 0 25px;
+
+}
+
+
+.service a {
+
+    color: #d6ad55;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+}
+
+
+/* ==============================
+   STATS
+================================ */
+
+.stats-section {
+
+    padding: 150px 8%;
+
+}
+
+
+.stats-content h2 {
+
+    font-size: clamp(45px, 6vw, 80px);
+
+    font-weight: 500;
+
+    line-height: 1;
+
+}
+
+
+.stats-content h2 span {
+
+    color: #d6ad55;
+
+}
+
+
+.stats-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    margin-top: 80px;
+
+    border-top: 1px solid #222;
+
+}
+
+
+.stat {
+
+    padding: 50px 20px;
+
+    border-right: 1px solid #222;
+
+}
+
+
+.stat strong {
+
+    font-size: 65px;
+
+    font-weight: 400;
+
+}
+
+
+.stat > span {
+
+    color: #d6ad55;
+
+    font-size: 25px;
+
+}
+
+
+.stat p {
+
+    color: #888;
+
+    margin-top: 10px;
+
+}
+
+
+/* ==============================
+   CTA
+================================ */
+
+.property-cta {
+
+    position: relative;
+
+    margin: 50px 8% 120px;
+
+    padding: 100px 8%;
+
+    min-height: 550px;
+
+    display: flex;
+
+    align-items: center;
+
+    background:
+
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(163,13,13,.35),
+            transparent 35%
+        ),
+
+        #0b0b0b;
+
+    border: 1px solid #222;
+
+}
+
+
+.cta-content {
+
+    max-width: 850px;
+
+}
+
+
+.cta-content h2 {
+
+    font-size: clamp(50px, 7vw, 100px);
+
+    font-weight: 500;
+
+    line-height: .95;
+
+    margin-bottom: 30px;
+
+}
+
+
+.cta-content h2 span {
+
+    color: #d6ad55;
+
+}
+
+
+.cta-content p {
+
+    max-width: 500px;
+
+    color: #888;
+
+    line-height: 1.8;
+
+    margin-bottom: 35px;
+
+}
+
+
+.cta-buttons {
+
+    display: flex;
+
+    gap: 30px;
+
+    align-items: center;
+
+}
+
+
+.gold-button {
+
+    padding: 17px 25px;
+
+    background: #d6ad55;
+
+    color: #000;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: .3s;
+
+}
+
+
+.gold-button:hover {
+
+    background: #fff;
+
+    transform: translateY(-5px);
+
+}
+
+
+.text-button {
+
+    color: white;
+
+    text-decoration: none;
+
+}
+
+
+/* ==============================
+   ANIMATION
+================================ */
+
+.reveal {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+    transition:
+
+        opacity .8s ease,
+
+        transform .8s ease;
+
+}
+
+
+.reveal.active {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+}
+
+
+/* ==============================
+   MOBILE
+================================ */
+
+@media (max-width: 900px) {
+
+    .intro-section {
+
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+
+    }
+
+
+    .property-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .property-large {
+
+        grid-row: auto;
+
+    }
+
+
+    .property-large .property-image {
+
+        height: 500px;
+
+    }
+
+
+    .services-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+
+    .stats-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .intro-section {
+
+        padding: 100px 6%;
+
+    }
+
+
+    .properties-section,
+    .services-section,
+    .stats-section {
+
+        padding-left: 6%;
+
+        padding-right: 6%;
+
+    }
+
+
+    .section-heading {
+
+        display: block;
+
+    }
+
+
+    .section-heading p {
+
+        margin-top: 20px;
+
+    }
+
+
+    .services-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .service {
+
+        border-right: none;
+
+        border-bottom: 1px solid #222;
+
+    }
+
+
+    .stats-grid {
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+
+    .stat strong {
+
+        font-size: 40px;
+
+    }
+
+
+    .property-cta {
+
+        margin-left: 6%;
+
+        margin-right: 6%;
+
+        padding: 60px 30px;
+
+    }
+
+
+    .cta-buttons {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+}
+/* ------------------------------------------------------------------ */
+
+/* ========================================
+   MODERN REAL ESTATE FOOTER
+======================================== */
+
+.site-footer {
+    position: relative;
+
+    background: #030303;
+
+    color: #fff;
+
+    padding: 0 8%;
+
+    overflow: hidden;
+}
+
+
+/* ========================================
+   SUBTLE RED GLOW
+======================================== */
+
+.site-footer::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+
+    height: 500px;
+
+    right: -250px;
+
+    bottom: -250px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(193, 18, 31, .20),
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+}
+
+
+/* ========================================
+   CTA
+======================================== */
+
+.footer-cta {
+
+    min-height: 300px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 40px;
+
+    border-bottom: 1px solid rgba(212,175,55,.18);
+
+}
+
+
+.footer-label {
+
+    display: block;
+
+    color: #d4af37;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.footer-cta h2 {
+
+    font-size: clamp(40px, 5vw, 70px);
+
+    line-height: .95;
+
+    font-weight: 500;
+
+    max-width: 700px;
+
+}
+
+
+.footer-cta h2 span {
+
+    color: #d4af37;
+
+}
+
+
+/* ========================================
+   CTA BUTTON
+======================================== */
+
+.footer-cta-button {
+
+    position: relative;
+
+    width: 150px;
+
+    height: 150px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    background: #d4af37;
+
+    color: #000;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: .5s;
+
+}
+
+
+.footer-cta-button span {
+
+    transition: .4s;
+
+}
+
+
+.footer-cta-button:hover {
+
+    background: #c1121f;
+
+    color: #fff;
+
+    transform: rotate(-8deg) scale(1.05);
+
+}
+
+
+.footer-cta-button:hover span {
+
+    transform: translate(5px, -5px);
+
+}
+
+
+/* ========================================
+   MAIN FOOTER
+======================================== */
+
+.footer-main {
+
+    display: grid;
+
+    grid-template-columns: 2fr 1fr 1fr 1.3fr;
+
+    gap: 60px;
+
+    padding: 80px 0;
+
+}
+
+
+/* ========================================
+   LOGO
+======================================== */
+
+.footer-logo {
+
+    display: inline-block;
+
+    color: #fff;
+
+    font-size: 30px;
+
+    font-weight: 800;
+
+    letter-spacing: -1px;
+
+    text-decoration: none;
+
+    margin-bottom: 20px;
+
+}
+
+
+.footer-logo span {
+
+    color: #d4af37;
+
+}
+
+
+.footer-brand p {
+
+    max-width: 300px;
+
+    color: #777;
+
+    line-height: 1.8;
+
+    font-size: 14px;
+
+}
+
+
+/* ========================================
+   SOCIAL LINKS
+======================================== */
+
+.social-links {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 30px;
+
+}
+
+
+.social-links a {
+
+    width: 38px;
+
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 1px solid #292929;
+
+    border-radius: 50%;
+
+    color: #999;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    transition: .3s;
+
+}
+
+
+.social-links a:hover {
+
+    background: #d4af37;
+
+    border-color: #d4af37;
+
+    color: #000;
+
+    transform: translateY(-4px);
+
+}
+
+
+/* ========================================
+   FOOTER COLUMNS
+======================================== */
+
+.footer-column {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+}
+
+
+.footer-column h3 {
+
+    color: #fff;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    margin-bottom: 15px;
+
+}
+
+
+.footer-column a {
+
+    color: #777;
+
+    font-size: 13px;
+
+    text-decoration: none;
+
+    transition: .3s;
+
+}
+
+
+.footer-column a:hover {
+
+    color: #d4af37;
+
+    transform: translateX(5px);
+
+}
+
+
+.footer-column p {
+
+    color: #777;
+
+    font-size: 13px;
+
+    margin-top: 5px;
+
+}
+
+
+/* ========================================
+   CONTACT
+======================================== */
+
+.contact-column a:first-of-type {
+
+    color: #d4af37;
+
+}
+
+
+.contact-column a:hover {
+
+    color: #c1121f;
+
+}
+
+
+/* ========================================
+   NEWSLETTER
+======================================== */
+
+.footer-newsletter {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 60px;
+
+    padding: 45px 0;
+
+    border-top: 1px solid #191919;
+
+    border-bottom: 1px solid #191919;
+
+}
+
+
+.footer-newsletter h3 {
+
+    max-width: 500px;
+
+    font-size: 22px;
+
+    font-weight: 400;
+
+    line-height: 1.4;
+
+}
+
+
+.newsletter-form {
+
+    display: flex;
+
+    width: 430px;
+
+    max-width: 100%;
+
+    border-bottom: 1px solid #444;
+
+}
+
+
+.newsletter-form input {
+
+    flex: 1;
+
+    background: transparent;
+
+    border: none;
+
+    outline: none;
+
+    padding: 15px 0;
+
+    color: white;
+
+    font-size: 13px;
+
+}
+
+
+.newsletter-form input::placeholder {
+
+    color: #555;
+
+}
+
+
+.newsletter-form button {
+
+    background: transparent;
+
+    border: none;
+
+    color: #d4af37;
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+
+.newsletter-form button span {
+
+    font-size: 18px;
+
+    transition: .3s;
+
+}
+
+
+.newsletter-form button:hover span {
+
+    transform: translateX(5px);
+
+}
+
+
+/* ========================================
+   BOTTOM
+======================================== */
+
+.footer-bottom {
+
+    min-height: 90px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 30px;
+
+}
+
+
+.footer-bottom p {
+
+    color: #555;
+
+    font-size: 11px;
+
+}
+
+
+.footer-bottom div {
+
+    display: flex;
+
+    gap: 25px;
+
+}
+
+
+.footer-bottom a {
+
+    color: #555;
+
+    font-size: 11px;
+
+    text-decoration: none;
+
+    transition: .3s;
+
+}
+
+
+.footer-bottom a:hover {
+
+    color: #d4af37;
+
+}
+
+
+.back-top {
+
+    color: #d4af37 !important;
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 900px) {
+
+    .footer-cta {
+
+        padding: 70px 0;
+
+    }
+
+
+    .footer-main {
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+
+    .footer-newsletter {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .site-footer {
+
+        padding: 0 6%;
+
+    }
+
+
+    .footer-cta {
+
+        display: block;
+
+        padding: 70px 0;
+
+    }
+
+
+    .footer-cta-button {
+
+        margin-top: 40px;
+
+        width: 120px;
+
+        height: 120px;
+
+    }
+
+
+    .footer-main {
+
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+
+        padding: 60px 0;
+
+    }
+
+
+    .footer-newsletter {
+
+        gap: 30px;
+
+    }
+
+
+    .newsletter-form {
+
+        width: 100%;
+
+    }
+
+
+    .footer-bottom {
+
+        padding: 25px 0;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+
+    .footer-bottom div {
+
+        flex-direction: column;
+
+        gap: 10px;
+
+    }
+
+}
+/* =========================================================
+   RESPONSIVE FIX — PHONE, MOBILE & TABLET
+   Prevents text overlapping and horizontal scrolling
+   ========================================================= */
+
+/* ---------- GLOBAL RESET ---------- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+button,
+input,
+textarea,
+select {
+    max-width: 100%;
+    font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+
+/* =========================================================
+   CONTAINERS
+   ========================================================= */
+
+.container,
+section,
+footer,
+header {
+    width: 100%;
+    max-width: 100%;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+
+/* =========================================================
+   TABLET
+   769px — 1024px
+   ========================================================= */
+
+@media (max-width: 1024px) {
+
+    /* General spacing */
+
+    section {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    /* Headings */
+
+    h1 {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        line-height: 1.05;
+    }
+
+    h2 {
+        font-size: clamp(2rem, 4.5vw, 3rem);
+        line-height: 1.15;
+    }
+
+    h3 {
+        line-height: 1.2;
+    }
+
+    p {
+        line-height: 1.7;
+    }
+
+
+    /* ---------- GRIDS ---------- */
+
+    .property-grid,
+    .properties-grid,
+    .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+
+    /* ---------- FOOTER ---------- */
+
+    .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 40px;
+    }
+
+    .footer-top {
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .footer-cta {
+        padding: 70px 5%;
+    }
+
+
+    /* ---------- CTA ---------- */
+
+    .cta-section {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   768px AND BELOW
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* ---------- GLOBAL ---------- */
+
+    body {
+        font-size: 15px;
+        overflow-x: hidden;
+    }
+
+    section {
+        width: 100%;
+        padding: 60px 5%;
+    }
+
+    .container {
+        width: 100%;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+
+    /* ---------- TEXT ---------- */
+
+    h1 {
+        width: 100%;
+        max-width: 100%;
+        font-size: clamp(2.2rem, 10vw, 4rem);
+        line-height: 1.05;
+        margin-bottom: 20px;
+        overflow-wrap: anywhere;
+    }
+
+    h2 {
+        width: 100%;
+        max-width: 100%;
+        font-size: clamp(1.8rem, 8vw, 3rem);
+        line-height: 1.1;
+        overflow-wrap: anywhere;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+        line-height: 1.3;
+        overflow-wrap: anywhere;
+    }
+
+    h4 {
+        line-height: 1.3;
+        overflow-wrap: anywhere;
+    }
+
+    p {
+        width: 100%;
+        max-width: 100%;
+        line-height: 1.7;
+        overflow-wrap: anywhere;
+    }
+
+
+    /* =====================================================
+       HEADER / NAVIGATION
+       ===================================================== */
+
+    header {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    nav {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .navbar,
+    .nav-container,
+    .nav-content {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .nav-container {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .nav-links a {
+        white-space: nowrap;
+        font-size: 14px;
+    }
+
+
+    /* =====================================================
+       HERO
+       ===================================================== */
+
+    .hero {
+        width: 100%;
+        min-height: 80vh;
+        padding: 100px 5% 70px;
+        overflow: hidden;
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .hero h1 {
+        max-width: 100%;
+        font-size: clamp(2.4rem, 12vw, 4rem);
+        line-height: 1.02;
+    }
+
+    .hero p {
+        max-width: 100%;
+        font-size: 1rem;
+    }
+
+    .hero-buttons,
+    .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .hero-buttons a,
+    .hero-actions a,
+    .hero-buttons button,
+    .hero-actions button {
+        max-width: 100%;
+    }
+
+
+    /* =====================================================
+       PROPERTY CARDS
+       ===================================================== */
+
+    .property-grid,
+    .properties-grid {
+        grid-template-columns: 1fr;
+        width: 100%;
+        gap: 25px;
+    }
+
+    .property-card {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .property-card img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .property-info {
+        width: 100%;
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .property-title {
+        width: 100%;
+        overflow-wrap: anywhere;
+    }
+
+    .property-location {
+        display: flex;
+        align-items: flex-start;
+        gap: 7px;
+    }
+
+    .property-location span {
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .property-price {
+        font-size: 1.3rem;
+        overflow-wrap: anywhere;
+    }
+
+
+    /* =====================================================
+       SERVICES
+       ===================================================== */
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .service-card {
+        width: 100%;
+        min-width: 0;
+        padding: 25px;
+    }
+
+    .service-card h3,
+    .service-card p {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+
+
+    /* =====================================================
+       STATS
+       ===================================================== */
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        gap: 15px;
+    }
+
+    .stat {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .stat-number {
+        font-size: clamp(2rem, 8vw, 3rem);
+        overflow-wrap: anywhere;
+    }
+
+
+    /* =====================================================
+       CTA
+       ===================================================== */
+
+    .cta-section {
+        width: 100%;
+        padding: 60px 5%;
+    }
+
+    .cta-section h2 {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+
+    .cta-section p {
+        max-width: 100%;
+    }
+
+    .cta-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .cta-buttons a,
+    .cta-buttons button {
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+    }
+
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
+
+    footer {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .footer-cta {
+        width: 100%;
+        padding: 60px 5%;
+    }
+
+    .footer-cta h2 {
+        width: 100%;
+        max-width: 100%;
+        font-size: clamp(2rem, 9vw, 4rem);
+        line-height: 1.05;
+        overflow-wrap: anywhere;
+    }
+
+    .footer-cta p {
+        max-width: 100%;
+    }
+
+    .footer-grid {
+        width: 100%;
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .footer-column {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .footer-column h3 {
+        margin-bottom: 15px;
+    }
+
+    .footer-column a {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+
+    /* =====================================================
+       NEWSLETTER
+       ===================================================== */
+
+    .newsletter {
+        width: 100%;
+    }
+
+    .newsletter form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .newsletter input {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .newsletter button {
+        width: 100%;
+    }
+
+
+    /* =====================================================
+       FOOTER BOTTOM
+       ===================================================== */
+
+    .footer-bottom {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .footer-bottom-links {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .footer-bottom-links a {
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   480px AND BELOW
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    section {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .container {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+
+    /* ---------- HEADINGS ---------- */
+
+    h1 {
+        font-size: clamp(2rem, 12vw, 3.2rem);
+        line-height: 1.02;
+    }
+
+    h2 {
+        font-size: clamp(1.7rem, 9vw, 2.5rem);
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+
+    /* ---------- BUTTONS ---------- */
+
+    .btn,
+    button,
+    .hero-buttons a,
+    .hero-actions a {
+        max-width: 100%;
+        white-space: normal;
+        text-align: center;
+        padding: 13px 18px;
+    }
+
+
+    /* ---------- STATS ---------- */
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+
+    /* ---------- PROPERTY ---------- */
+
+    .property-info {
+        padding: 18px;
+    }
+
+    .property-card {
+        border-radius: 14px;
+    }
+
+
+    /* ---------- FOOTER ---------- */
+
+    .footer-cta {
+        padding: 50px 18px;
+    }
+
+    .footer-cta h2 {
+        font-size: clamp(2rem, 11vw, 3rem);
+    }
+
+    .footer-grid {
+        gap: 30px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   360px AND BELOW
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.7rem;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    section {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .property-info {
+        padding: 15px;
+    }
+}
+
+
+/* =========================================================
+   UNIVERSAL OVERFLOW PROTECTION
+   ========================================================= */
+
+/* Stops long email, phone numbers, URLs, etc. */
+
+a,
+span,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+div {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+
+/* Prevent fixed-width elements from breaking mobile */
+
+iframe,
+video,
+svg,
+canvas {
+    max-width: 100%;
+}
+
+
+/* Prevent tables from destroying mobile layout */
+
+table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+
+/* Make flex children shrink correctly */
+
+.flex,
+.row,
+.nav-container,
+.footer-top,
+.footer-bottom,
+.property-meta {
+    min-width: 0;
+}
+
+
+/* Flex items must be allowed to shrink */
+
+.flex > *,
+.row > *,
+.nav-container > *,
+.footer-top > *,
+.footer-bottom > * {
+    min-width: 0;
+}
+
+
+/* Prevent accidental horizontal movement */
+
+section,
+header,
+footer,
+main,
+nav,
+article,
+aside {
+    max-width: 100%;
+}
